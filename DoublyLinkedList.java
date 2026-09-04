@@ -123,7 +123,9 @@ public class DoublyLinkedList<E> {
 
             if (walk.getElement() == null) {
                 if (prevNode != header) {
-                    remove(walk);
+                    prevNode.setNext(nextNode);
+                    nextNode.setPrev(prevNode);
+
                     Node<E> first = header.getNext();
                     header.setNext(walk);
                     walk.setPrev(header);
